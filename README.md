@@ -4,3 +4,4 @@ Nessa aula, vamos aproveitar para criar o projeto, criar a estrutura e o HTML da
 Dica:
 Geralmente quando trabalhos com CRUD podemos presumir que teremos algumas telas: 
 Lista: Uma tela responsável por mostrar a lista de todos os itens do catálogo.Detalhes: Uma tela responsável por acessar informações adicionais do item.Criar: Uma tela responsável por realizar a criação do item.Editar: Uma tela responsável por realizar a edição do item.Deletar: Uma tela responsável por deletar o item.
+Teste
