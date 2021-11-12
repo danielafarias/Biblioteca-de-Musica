@@ -1,0 +1,27 @@
+{
+  "name": "biblioteca-de-musica",
+  "version": "1.0.0",
+  "description": "Catálogo com Tema Livre",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielafarias/Biblioteca-de-Musica.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielafarias/Biblioteca-de-Musica/issues"
+  },
+  "homepage": "https://github.com/danielafarias/Biblioteca-de-Musica#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
