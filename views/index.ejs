@@ -5,39 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title>JOYMUSIC</title>
+    <title><%= pageTitle %></title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
     <link rel="icon" type="image/png" href="/img/logo_pequena.png"/>
 </head>
 <body>
-    <header>
-        <div class="header">
-            <nav>
-                <ul>
-                    <li>
-                        <input type="text" class="search" placeholder="procure pelo nome da música">
-                        <div class="botão-search">
-                            <a href="" class="fas fa-search"></a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="botão-add">
-                            <a href="" class="fas fa-plus"></a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="botão-excluir">
-                            <a href="" class="fas fa-trash"></a>
-                        </div>
-                    </li>
-            </nav>
+    <header class="cabecalho">
+        <form method="post">
+            <input type="text" class="search" placeholder="Busque pela música">
+            <button id="lupa">
+                <i class="fas fa-search fa-lg"></i>
+            </button>
+        </form>
+        <div class="botoes">
+            <button id="plus">
+                <i class="fas fa-plus fa-lg"></i>
+            </button>
+            <button id="lixo">
+                <i class="fas fa-trash fa-lg"></i>
+            </button>
         </div>
     </header>
     <main>
         <div class="catalogo">
-            
+            <div id="songsList">
+                <% songsList.forEach((item, index)=> { %>
+                    <a class="cartão" href="/detalhes/<%= index %>">
+                        <img src="<%= item.cover %>">
+                        <h2><%= item.title %></h2>
+                        <h3><%= item.artist %></h3>
+                        <h4><%= item.album %></h4>
+                    </a>
+                <% }) %>
+            </div>
         </div>
     </main>
+    <footer>
+        <div class="tocador">
+            
+        </div>
+    </footer>
     <script src="/js/script.js"></script>
 </body>
 </html>

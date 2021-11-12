@@ -17,11 +17,12 @@ const songs = [
         album: "Sawayama"
     },
 ];
+
 var message = "";
 
 /* Renderiza a página inicial */
 app.get("/", (req, res) => {
-    res.render("index", { pageTitle: "Joymusic | Home", songsList: songs, message });
+    res.render("index", { pageTitle: "JOYMUSIC | Home", songsList: songs, message });
 });
 
 /* Renderiza a página de cadastrar música */
