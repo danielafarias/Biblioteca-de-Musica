@@ -78,19 +78,32 @@ app.delete("/apagar/:id", (req, res) => {
 });
 
 /* Rota para alterar apenas uma música */
-app.put("/update/:id", (req, res) => {
-    const indice = req.params.id;
-    res.render("update", { titulo3: "Joymusic | Edite a Música" });
+app.get("/update/:id", async (req, res) => {
+  const songs = await Song.findByPk(req.params.id);
+
+  if (!songs) {
+    res.render("index", {
+      message: "Música não encontrado!",
+    });
+  }
+  
+  res.render("update", { pageTitle: "Joymusic | Edite a Música", songs });
 });
 
-app.post("/atualizada", (req, res) => {
-    const { id } = req.params;
-    const { cover, title, artist, album } = req.body;
-    const musicaAtualizada = { cover:cover, title:title, artist:artist, album:album };
-    songs[id] = musicaAtualizada;
-    mensagem = "Música Atualziada!";
-    res.redirect("/");
-  });
+app.post("/update/:id", async (req, res) => {
+  const songs = await Song.findByPk(req.params.id);
+
+  const { cover, title, artist, album } = req.body;
+
+  songs.cover = cover;
+  songs.title = title;
+  songs.artist = artist;
+  songs.album = album;
+
+  const updatedSong = await songs.save();
+  
+  res.render("update", { pageTitle: "Joymusic | Home", songs: updatedSong, message: "Sucesso ao editar a música!" });
+});
 
 app.listen(port, () => console.log(`Servidor rodando em http://localhost:${port}`));
 
