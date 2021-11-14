@@ -3,6 +3,7 @@
 * {
     margin: 0px;
     padding: 0px;
+    border: 0px;
     box-sizing: border-box;
     outline: none;
     font-family: "Roboto", sans-serif;
@@ -15,7 +16,240 @@ html, body { /* para não ter barra de navegação horizontal */
 
 /* header */
 
-.cabecalho {
+header {
+    background-image: url("/img/header.jpg");
+    max-width: 1000px;
+    min-width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 50px;
+}
+
+.buscar {
+    float: left;
+    width: 30%;
+    height: 40px;
+    background: #231F20;
+    border: 2px solid #03ADEF;
+    border-radius: 5px;
+}
+
+.buscar input[type="text"] {
+    float: left;
+    width: 80%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    padding: 0 25px;
+    color: white;
+}
+
+.buscar button {
+    float: left;
+    width: 20%;
+    height: 100%;
+    border: none;
+    background: #231F20;
+    color: #03ADEF;
+    cursor: pointer;
+}
+
+.buscar button:hover {
+    color: #b5437f;
+}
+
+#adicionar {
+    float: left;
+    width: 5%;
+    padding: 40px;
+    color: #03ADEF;
+    cursor: pointer;
+}
+
+#adicionar:hover {
+    color: #231F20;
+    transform: scale(1.1);
+}
+
+#deletar {
+    float: left;
+    width: 5%;
+    padding: 20px;
+    color: #03ADEF;
+    cursor: pointer;
+}
+
+#deletar:hover {
+    color: #231F20;
+    transform: scale(1.1);
+}
+
+#home {
+    float: left;
+    width: 5%;
+    padding: 20px;
+    color: #03ADEF;
+    cursor: pointer;
+}
+
+#home:hover {
+    color: #231F20;
+    transform: scale(1.1);
+}
+
+#editar {
+    float: left;
+    width: 5%;
+    padding: 20px;
+    color: #03ADEF;
+    cursor: pointer;
+}
+
+#editar:hover {
+    color: #b5437f;
+    transform: scale(1.1);
+}
+
+/* catalogo */
+
+.catalogo {
+    background-color: #231F20;
+    max-width: 1000px;
+    min-width: 100px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+a.cartao {
+    width: 10rem;
+    padding: 1rem;
+    box-shadow: 0 0 1rem #00000060;
+    margin: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+    transition: transform 0.5s;
+    background-color: #b5437f;
+    color:#03ADEF;
+    text-decoration: none;
+}
+
+a.cartao:hover {
+    transform: scale(1.1);
+}
+
+a.cartao img {
+    width: 8rem;
+    height: 8rem;
+}
+
+a.cartao h2 {
+    width: 100%;
+    padding-top: 5px;
+    color: #03ADEF;
+}
+
+.catalogo-musicas {
+    margin-left: 10rem;
+    margin-right: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* cadastro */
+
+.cadastro {
+    background-color: #231F20;
+    max-width: 1000px;
+    min-width: 100px;
+    margin: 0 auto;
+}
+
+.formulario {
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    margin: 0 20rem 10rem 20rem;
+}
+
+.cadastro form div input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.8rem;
+    outline: none;
+    border: 2px solid #03ADEF;
+    border-radius: 5px;
+}
+
+.cadastro form div label {
+    font-size: 1rem;
+    color: #03ADEF;
+}
+
+.cadastro form button {
+    border: 2px solid #03ADEF;
+    border-radius: 5px;
+    background-color: #03ADEF;
+    padding: 8px 40px;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 2rem;
+    color: white;
+    font-weight: bold;
+    margin: auto;
+}
+
+.cadastro form button:hover {
+    transform: scale(1.1);
+}
+
+.formulario button {
+    display: flex;
+    justify-content: center;
+}
+
+/* detalhes */
+
+.detalhes {
+    background-color: #231F20;
+    max-width: 1000px;
+    min-width: 100px;
+    margin: 0 auto;
+    flex-direction: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+}
+
+.detalhes img {
+    margin: 1rem auto;
+}
+
+.detalhes-texto {
+    width: 50%;
+    border: 2px solid #03ADEF;
+    border-radius: 5px;
+    padding: 15px;
+    color: white;
+  }
+
+/* footer */
+
+footer {
+    background-color: #b5437f;
     max-width: 1000px;
     min-width: 1000px;
     height: 100px;
@@ -23,114 +257,59 @@ html, body { /* para não ter barra de navegação horizontal */
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
     padding: 10px;
-    background-image: url("/img/header.jpg");
 }
 
-.botoes {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px;
-    margin: 40px;
+.container {
+    width: 960px;
 }
 
-.cabecalho form {
-    width: 20%;
-    margin: 40px;
-    display: flex;
-    float: left;
-}
-
-.cabecalho input[type="text"] {
-    width: 250px;
-    float: left;
-    padding: 15px 10px;
-    border: 1px solid #03ADEF;
-    color: white;
-    background: #231F20;
-    font-weight: bold;
-    border-radius: 4px;
-}
-
-#lupa {
-    float: right;
-    padding: 15px 10px;
-    background: transparent;
-    color: #03ADEF;
-    border: none;
-    cursor: pointer;
-    
-}
-
-#plus {
-    padding: 15px 10px;
-    background: transparent;
-    color: #03ADEF;
-    border: none;
-    cursor: pointer;
-}
-
-#lixo {
-    padding: 15px 10px;
-    background: transparent;
-    color: #03ADEF;
-    border: none;
-    cursor: pointer;
-}
-
-/* catálogo */
-
-.catalogo {
-    width: 1000px;
-    padding: 100px;
-    margin: 0 auto;
-    background-color: #231F20;
-}
-
-a.cartão {
-    width: 20rem;
-    padding: 3rem;
-    box-shadow: 0 0 1rem #00000060;
-    margin: 2rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.5s;
-    background-color: #b5437f;
-    color:white;
-    text-decoration: none;
-}
-    
-a.cartão:hover {
-    transform: scale(1.1);
-}
-  
-a.cartão img {
-    width: 15rem;
-    height: 15rem;
-}
-  
-a.cartão h2 {
+.top-bar {
     width: 100%;
-    text-align: center;
-    padding: 2rem;
-    color: white;
+    height: 30px;
+    color: #03ADEF;
+    line-height: 30px;
 }
 
-/* footer */
+.top-bar .player-controls {
+    float: left;
+}
 
-.tocador {
-    max-width: 1000px;
-    min-width: 1000px;
-    height: 200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px;
-    background-image: url("/img/player.jpg");
+.top-bar .player-controls span {
+    cursor: pointer;
+    padding: 0 5px;
+    /*9-webkit-transition: all linear 0.2s;*/
+}
+
+.top-bar .player-controls span:hover {
+    color: #03ADEF;
+}
+
+.top-bar .player-display {
+    float: left;
+    float: right;
+    margin-left: 50px;
+}
+
+.top-bar .player-display .player-current-track {
+    color: #03ADEF;
+}
+
+.top-bar .player {
+    float: left;
+}
+
+.top-bar .player-timeline {
+    float: left;
+    max-width: 200px;
+    width: 200px;
+    height: 4px;
+    margin-top: 13px;
+    background: #03ADEF;
+    margin-left: 20px;
+}
+
+.top-bar .player-timeline-control {
+    height: 4px;
+    background: #03ADEF;
 }

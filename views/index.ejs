@@ -1,48 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <title><%= pageTitle %></title>
+    <link rel="icon" type="image/png" href="/img/logo_pequena.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-    <link rel="icon" type="image/png" href="/img/logo_pequena.png"/>
 </head>
+
 <body>
-    <header class="cabecalho">
-        <form method="post">
-            <input type="text" class="search" placeholder="Busque pela música">
-            <button id="lupa">
-                <i class="fas fa-search fa-lg"></i>
-            </button>
-        </form>
-        <div class="botoes">
-            <button id="plus">
-                <i class="fas fa-plus fa-lg"></i>
-            </button>
-            <button id="lixo">
-                <i class="fas fa-trash fa-lg"></i>
-            </button>
-        </div>
-    </header>
-    <main>
-        <div class="catalogo">
-            <div id="songsList">
-                <% songsList.forEach((item, index)=> { %>
-                    <a class="cartão" href="/detalhes/<%= index %>">
-                        <img src="<%= item.cover %>">
-                        <h2><%= item.title %></h2>
-                        <h3><%= item.artist %></h3>
-                        <h4><%= item.album %></h4>
-                    </a>
-                <% }) %>
+    <header class="header">
+        <form action="/detalhes" method="POST"></form>
+            <div class="buscar">
+                <input type="text" name="musica" id="musica" placeholder="Pesquise pela música" required>
+                <button id="lupa" type="submit"><i class="fas fa-search fa-lg"></i></button>
             </div>
+        </form>
+
+        <a id="adicionar" href="/cadastro"><i class="fas fa-plus fa-lg"></i></a>
+        <a id="deletar" href="/"><i class="fas fa-trash fa-lg"></i></a>
+    </header>
+
+    <main class="catalogo">
+        <div class="catalogo-musicas">
+            <% songsList.forEach((item, index)=> { %>
+                <a class="cartao" href="/detalhes/<%= index %>">
+                    <img src="<%= item.cover %>">
+                    <h2><%= item.title %></h2>
+                    <h4><%= item.artist %></h3>
+                    <h5><%= item.album %></h4>
+                </a>
+            <% }) %>
         </div>
     </main>
-    <footer>
-        <div class="tocador">
-            
+
+    <footer class="tocador">
+        <div class="top-bar">
+            <div class="container">
+                <div class="player-controls">
+                    <span class="player-prev">Prev</span>
+                    <span class="player-play">Play</span>
+                    <span class="player-pause">Pause</span>
+                    <span class="player-stop">Stop</span>
+                    <span class="player-next">Next</span>
+                </div>
+
+                <div class="player"></div>
+                
+                <div class="player-timeline">
+                    <div class="player-timeline-control"></div>
+                </div>
+                
+                <div class="player-display">
+                    Playing: <span class="player-current-track"></span>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="/js/script.js"></script>
