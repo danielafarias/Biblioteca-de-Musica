@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title><%= titulo %></title>
+    <link rel="icon" type="image/png" href="/img/logo_pequena.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+</head>
+
+<body>
+    <header class="header">
+        <form action="/detalhes" method="POST"></form>
+            <div class="buscar">
+                <input type="text" name="musica" id="musica" placeholder="Pesquise pela música" required>
+                <button id="lupa" type="submit"><i class="fas fa-search fa-lg"></i></button>
+            </div>
+        </form>
+
+        <a id="home" href="/"><i class="fas fa-home fa-lg"></i></a>
+    </header>
+
+    <main class="cadastro">
+        <div class="formulario">
+            <form action="/new" method="POST">
+                <div>
+                    <label for="cover">Capa do Álbum: </label>
+                    <input type="text" name="cover" id="cover" placeholder="Registre a capa do Álbum!" required>
+                </div>
+            
+                <div>
+                    <label for="title">Título da Música: </label>
+                    <input type="text" name="title" id="title" placeholder="Registre o nome da Música!" required>
+                </div>
+            
+                <div>
+                    <label for="artist">Nome do Cantor: </label>
+                    <input type="text" name="artist" id="artist" placeholder="Registre o nome do Cantor!" required>
+                </div>
+            
+                <div>
+                    <label for="album">Nome do Álbum: </label>
+                    <input type="text" name="album" id="album" placeholder="Registre o nome do Álbum!" required>
+                </div>
+            
+                <button type="submit">CADASTRAR</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
