@@ -13,6 +13,7 @@ html, body { /* para não ter barra de navegação horizontal */
     width: 100%;
     overflow-x: hidden;
     background-color: #231F20;
+    
 }
 
 /* header */
@@ -254,13 +255,16 @@ a.cartao h2 {
 
 footer {
     background-color: #b5437f;
-    position: sticky;
     height: 100px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 10px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    position: fixed;
 }
 
 .container {
