@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title><%= titulo2 %></title>
+    <title><%= pageTitle %></title>
     <link rel="icon" type="image/png" href="/img/logo_pequena.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 </head>
@@ -25,13 +25,13 @@
 
     <main class="detalhes">
         <div>
-            <img src="<%= musica.cover %>" alt="imagem do pokemon">
+            <img class="cover" src="<%= songs.cover %>" alt="Capa do album">
         </div>
         
         <div class="detalhes-texto">
-            <h2>Título: <%= musica.title %></h2>
-            <h2>Artista: <%= musica.artist %></h2>
-            <h2>Álbum: <%= musica.album %></h2>
+            <h2>Título: <%= songs.title %></h2>
+            <h2>Artista: <%= songs.artist %></h2>
+            <h2>Álbum: <%= songs.album %></h2>
         </div>
 
         <a id="editar" href="/update"><i class="fas fa-edit fa-lg"></i></a>

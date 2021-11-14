@@ -26,8 +26,8 @@
 
     <main class="catalogo">
         <div class="catalogo-musicas">
-            <% songsList.forEach((item, index)=> { %>
-                <a class="cartao" href="/detalhes/<%= index %>">
+            <% songs.map ( item => { %>
+                <a class="cartao" href="/detalhes/<%= item.id %>">
                     <img src="<%= item.cover %>">
                     <h2><%= item.title %></h2>
                     <h4><%= item.artist %></h3>

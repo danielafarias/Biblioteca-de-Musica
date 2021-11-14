@@ -1,47 +1,65 @@
 const express = require("express");
 const path = require("path");
-
 const app = express();
 const port = process.env.PORT || 3000;
-app.use(express.urlencoded());
+const Song = require("./models/songs");
+
+require('dotenv').config();
 
 app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, "public")));
 
-const songs = [
-    {
-        id: 1,
-        cover: "https://upload.wikimedia.org/wikipedia/pt/0/00/Sawayama.jpg",
-        title: "XS",
-        artist: "Rina Sawayama",
-        album: "Sawayama"
-    },
-];
+app.use(express.urlencoded());
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());
+
+// const songs = [
+//     {
+//         id: 1,
+//         cover: "https://upload.wikimedia.org/wikipedia/pt/0/00/Sawayama.jpg",
+//         title: "XS",
+//         artist: "Rina Sawayama",
+//         album: "Sawayama"
+//     },
+// ];
 
 var message = "";
 
 /* Renderiza a página inicial */
-app.get("/", (req, res) => {
-    res.render("index", { pageTitle: "JOYMUSIC | Home", songsList: songs, message });
+app.get("/", async (req, res) => {
+    const songs = await Song.findAll();
+
+    res.render("index", { pageTitle: "JOYMUSIC | Home", songs, message });
 });
 
 /* Renderiza a página de cadastrar música */
 app.get("/cadastro", (req, res) => {
-    res.render("cadastro", { titulo: "Joymusic | Cadastro de Música" });
+    res.render("cadastro", { pageTitle: "Joymusic | Cadastro de Música" });
 });
 
-app.get("/detalhes/:id", (req, res) => {
-    const indice = req.params.id;
-    const musica = songs[indice];
-    res.render("detalhes", { titulo2: "Joymusic | Informações da Música", musica: musica });
+app.get("/detalhes/:id", async (req, res) => {
+    const songs = await Song.findByPk(req.params.id);
+    res.render("detalhes", { pageTitle: "Joymusic | Informações da Música", songs });
   });
 
-  app.post("/new", (req, res) => {
+  app.post("/new", async (req, res) => {
     const { cover, title, artist, album } = req.body;
-    const novaMusica = { cover:cover, title:title, artist:artist, album:album };
-    songs.push(novaMusica);
-    mensagem = "Música Cadastrada!";
+
+    try {
+      await Song.create({
+        cover, 
+        title, 
+        artist, 
+        album
+      });
+  
+    message = "A música foi cadastrada com sucesso!";
     res.redirect("/");
+    } catch (err) {
+      console.log(err);
+      res.render("cadastro", {
+        pageTitle: "Joymusic | Cadastro de Música",
+      });
+    }
   });
 
 /* Rota para deletar tudo */

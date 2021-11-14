@@ -12,14 +12,16 @@
 html, body { /* para não ter barra de navegação horizontal */
     width: 100%;
     overflow-x: hidden;
+    background-color: #231F20;
 }
 
 /* header */
 
 header {
     background-image: url("/img/header.jpg");
-    max-width: 1000px;
-    min-width: 100px;
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-color: #b5437f;
     height: 100px;
     margin: 0 auto;
 }
@@ -250,8 +252,7 @@ a.cartao h2 {
 
 footer {
     background-color: #b5437f;
-    max-width: 1000px;
-    min-width: 1000px;
+    position: sticky;
     height: 100px;
     margin: 0 auto;
     display: flex;
@@ -312,4 +313,9 @@ footer {
 .top-bar .player-timeline-control {
     height: 4px;
     background: #03ADEF;
+}
+
+.cover {
+    width: 316px;
+    height: 316px;
 }
