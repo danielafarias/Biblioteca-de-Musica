@@ -38,13 +38,12 @@
         <a id="deletar" href="/deletar/<%= songs.id %>"><i class="fas fa-trash fa-lg"></i></a>
     </main>
 
-    
-        <iframe src="https://cdns-preview-d.dzcdn.net/stream/c-deda7fa9316d9e9e880d2c6207e92260-8.mp3">
+ 
+        <% filteredArray.map ( item => { %>
+            <iframe src=<%= item.preview %>>
 
-        </iframe>
-    
-      
-
+            </iframe>
+        <% }) %>
     <script src="/js/script.js"></script>
 </body>
 </html>
