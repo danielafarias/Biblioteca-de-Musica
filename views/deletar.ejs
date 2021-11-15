@@ -23,19 +23,14 @@
         <a id="home" href="/"><i class="fas fa-home fa-lg"></i></a>
     </header>
 
-    <main class="detalhes">
-        <div>
-            <img class="cover" src="<%= songs.cover %>" alt="Capa do album">
-        </div>
-        
-        <div class="detalhes-texto">
-            <h2>Título: <%= songs.title %></h2>
-            <h2>Artista: <%= songs.artist %></h2>
-            <h2>Álbum: <%= songs.album %></h2>
-        </div>
+    <main>
+        <form method="POST">
+            <div>
+                <h2>Deseja prosseguir com a exclusão da música?</h2>
+            </div>
 
-        <a id="editar" href="/update/<%= songs.id %>"><i class="fas fa-edit fa-lg"></i></a>
-        <a id="deletar" href="/deletar/<%= songs.id %>"><i class="fas fa-trash fa-lg"></i></a>
+            <button type="submit"><i class="fas fa-trash fa-lg"></button>
+        </form>
     </main>
 
     <script src="/js/script.js"></script>
