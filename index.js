@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const Song = require("./models/songs");
@@ -36,7 +35,13 @@ app.get("/detalhes/:id", async (req, res) => {
 
   const params = {
     method: "GET",
-    url: "https://api.deezer.com/search?q=" + songTitle + "+" + songArtist + "+" + songAlbum,
+    url:
+      "https://api.deezer.com/search?q=" +
+      songTitle +
+      "+" +
+      songArtist +
+      "+" +
+      songAlbum,
     headers: {
       "Content-Type": "application/json",
     },
@@ -48,17 +53,14 @@ app.get("/detalhes/:id", async (req, res) => {
 
   const responseArray = Array.from(responseData);
 
-  const filteredArray = responseArray.filter( x => 
-    x.title_short == songTitle && 
-    x.artist.name == songArtist
+  const filteredArray = responseArray.filter(
+    (x) => x.title_short == songTitle && x.artist.name == songArtist
   );
-
-  console.log(filteredArray)
 
   res.render("detalhes", {
     pageTitle: "Joymusic | Informações da Música",
     songs,
-    filteredArray
+    filteredArray,
   });
 });
 

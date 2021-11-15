@@ -341,3 +341,20 @@ iframe {
     border-top: 4px solid #03ADEF;
     background-color: #000;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #231F20;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #b5437f;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #03ADEF;
+  }
+  
