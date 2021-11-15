@@ -62,21 +62,6 @@ app.get("/detalhes/:id", async (req, res) => {
     }
   });
 
-/* Rota para deletar tudo */
-app.delete("/apagar", (req, res) => {
-    res.send('[HTTP200] Todas as músicas foram deletadas');
-    res.redirect("/");
-});
-
-/* Rota para deletar apenas uma música*/
-app.delete("/apagar/:id", (req, res) => {
-    const { id } = req.params;
-    const songsIndex = songs.findIndex(i => i.id == id);
-    songs.splice(songsIndex, 1);
-   
-    return res.send("Deletado com sucesso");
-});
-
 /* Rota para alterar apenas uma música */
 app.get("/update/:id", async (req, res) => {
   const songs = await Song.findByPk(req.params.id);
@@ -102,7 +87,35 @@ app.post("/update/:id", async (req, res) => {
 
   const updatedSong = await songs.save();
   
-  res.render("update", { pageTitle: "Joymusic | Home", songs: updatedSong, message: "Sucesso ao editar a música!" });
+  res.render("update", { pageTitle: "Joymusic | Editar Música", songs: updatedSong, message: "Sucesso ao editar a música!" });
+});
+
+/* Rotas para deletar */
+app.get("/deletar/:id", async (req, res) => {
+  const songs = await Song.findByPk(req.params.id);
+  if (!songs) {
+    res.render("deletar", {
+      pageTitle: "Joymusic | Apagar Música",
+      message: "Música não encontrada!",
+    });
+  }
+  res.render("deletar", {
+    pageTitle: "Joymusic | Apagar Música",
+    songs,
+  });
+});
+
+app.post("/deletar/:id", async (req, res) => {
+  const songs = await Song.findByPk(req.params.id);
+  if (!songs) {
+    res.render("deletar", {
+      pageTitle: "Joymusic | Apagar Música",
+      message: "Música não encontrada!",
+    });
+  }
+  await songs.destroy();
+  message = "A música foi deletada com sucesso!";
+  res.redirect("/");
 });
 
 app.listen(port, () => console.log(`Servidor rodando em http://localhost:${port}`));
