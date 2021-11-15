@@ -325,3 +325,18 @@ footer {
     width: 316px;
     height: 316px;
 }
+
+iframe {
+    overflow: hidden;
+    padding-top: -5rem;
+    height: 220px;
+    object-fit: cover;
+    margin: 0 auto;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    position: fixed;
+    opacity: 0.5;
+    border-top: 4px solid #03ADEF;
+}
