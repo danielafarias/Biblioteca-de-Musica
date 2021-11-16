@@ -138,6 +138,7 @@ a.cartao {
     display: flex;
     flex-wrap: wrap;
     cursor: pointer;
+    flex-direction: column;
     transition: transform 0.5s;
     background-color: #b5437f;
     color:#03ADEF;
@@ -157,13 +158,25 @@ a.cartao h2 {
     width: 100%;
     padding-top: 5px;
     color: #03ADEF;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+a.cartao h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+a.cartao h5 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
 .catalogo-musicas {
-    margin-left: 10rem;
-    margin-right: 10rem;
+    margin: 0 2rem 6rem;
     display: flex;
     justify-content: center;
     align-items: center;
