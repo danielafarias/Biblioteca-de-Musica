@@ -84,6 +84,9 @@ Em seguida, adicione as bibliotecas e dependências necessárias:
 ```
 <npm i --save ejs>
 ```
+```
+<npm i axios>
+```
 
 ## 🎧 Usando `<Biblioteca-de-Musica>`
 
