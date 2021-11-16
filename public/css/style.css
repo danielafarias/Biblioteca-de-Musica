@@ -266,7 +266,7 @@ a.cartao h5 {
 
 /* footer */
 
-footer {
+/* footer {
     background-color: #b5437f;
     height: 100px;
     margin: 0 auto;
@@ -278,6 +278,24 @@ footer {
     left: 0px;
     right: 0px;
     position: fixed;
+} */
+
+.player {
+    background-color: #b5437f;
+    height: 100px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    position: fixed;
+}
+
+.player-button {
+    background-color: transparent;
+    color: #03ADEF;
+}
+
+#icon {
+    width: 5rem;
 }
 
 .container {
@@ -337,6 +355,17 @@ footer {
 .cover {
     width: 316px;
     height: 316px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-button {
+    background-color: transparent;
+    color: #03ADEF;
 }
 
 iframe {
