@@ -110,13 +110,9 @@ app.post("/update/:id", async (req, res) => {
   songs.artist = artist;
   songs.album = album;
 
-  const updatedSong = await songs.save();
+  await songs.save();
 
-  res.render("update", {
-    pageTitle: "Joymusic | Editar Música",
-    songs: updatedSong,
-    message: "Sucesso ao editar a música!",
-  });
+  res.redirect("/");
 });
 
 /* Rotas para renderizar a página de confirmação de delete */
