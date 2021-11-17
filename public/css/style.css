@@ -80,6 +80,19 @@ header {
     transform: scale(1.1);
 }
 
+#generos {
+    float: left;
+    width: 5%;
+    padding: 20px;
+    color: #03ADEF;
+    cursor: pointer;
+}
+
+#generos:hover {
+    color: #231F20;
+    transform: scale(1.1);
+}
+
 #deletar {
     float: left;
     width: 5%;
@@ -383,6 +396,35 @@ iframe {
     border-top: 4px solid #03ADEF;
     background-color: #000;
 }
+
+.generos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lista-generos {
+    margin: 2rem 4rem;
+    padding: 1rem;
+    background-color: #363031;
+    color: #03ADEF;
+    font-weight: bold;
+    border-radius: 10px;
+    list-style-type: none;
+}
+
+.lista-generos td {
+    background-color: #413A3B;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.lista-generos td:hover {
+    background-color: #03ADEF;
+    color: #b5437f;
+    cursor: pointer;
+}
+
 
 ::-webkit-scrollbar {
     width: 10px;

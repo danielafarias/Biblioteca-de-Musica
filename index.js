@@ -144,6 +144,11 @@ app.post("/deletar/:id", async (req, res) => {
   res.redirect("/");
 });
 
+/* Renderiza a página de lista de generos */
+app.get("/generos", (req, res) => {
+  res.render("generos", { pageTitle: "Joymusic | Lista de Gêneros" });
+});
+
 app.listen(port, () =>
   console.log(`Servidor rodando em http://localhost:${port}`)
 );
