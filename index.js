@@ -36,7 +36,7 @@ app.get("/detalhes/:id", async (req, res) => {
   const params = {
     method: "GET",
     url:
-      "https://api.deezer.com/search?q=" +
+      "https://api.deezer.com/search/track?q=" +
       songTitle +
       "+" +
       songArtist +
@@ -54,13 +54,13 @@ app.get("/detalhes/:id", async (req, res) => {
   const responseArray = Array.from(responseData);
 
   const filteredArray = responseArray.filter(
-    (x) => x.title_short == songTitle && x.artist.name == songArtist
+    (x) => x.title_short.toLowerCase() == songTitle.toLowerCase() && x.artist.name.toLowerCase() == songArtist.toLowerCase()
   );
 
   res.render("detalhes", {
     pageTitle: "Joymusic | Informações da Música",
     songs,
-    filteredArray,
+    filteredArray
   });
 });
 
