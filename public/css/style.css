@@ -212,6 +212,17 @@ a.cartao h5 {
     margin: 0 20rem 10rem 20rem;
 }
 
+#gender_id {
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+    outline: none;
+    border: 2px solid #03ADEF;
+    border-radius: 5px;
+}
+
 .cadastro form div input {
     width: 100%;
     padding: 1rem;
