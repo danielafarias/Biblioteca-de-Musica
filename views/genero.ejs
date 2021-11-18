@@ -21,20 +21,21 @@
         </form>
 
         <a id="home" href="/"><i class="fas fa-home fa-lg"></i></a>
+        <a id="generos" href="/generos"><i class="fas fa-stream"></i></a>
     </header>
 
-    <main class="generos">
-        <ul class="lista-generos">
-            <% genders.map ( obj => { %>
-                <a href="/genero/<%= obj.id %>">
-               
-                    <li><%= obj.name %></li>
-               
-            </a>
-                <% }) %>
-        </table>
+    <main class="catalogo">
+        <div class="catalogo-musicas">
+            <% songs.map ( obj => { %>
+                <a class="cartao" href="/detalhes/<%= obj.id %>">
+                    <img src="<%= obj.cover %>">
+                    <h2><%= obj.title %></h2>
+                    <h4><%= obj.artist %></h3>
+                    <h5><%= obj.album %></h4>
+                </a>
+            <% }) %>
+        </div>
     </main>
-
     <script src="/js/script.js"></script>
 </body>
 </html>
