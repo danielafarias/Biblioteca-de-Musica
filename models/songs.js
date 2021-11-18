@@ -24,6 +24,11 @@ const Song = sequelize.define("songs", {
       type: Sequelize.STRING,
       allowNull: false,
     },
+    gender_id: {
+      type: Sequelize.INTEGER,
+      references: 'genders', 
+      referencesKey: 'id' 
+    }
   },
   {
     freezeTableName: true,
