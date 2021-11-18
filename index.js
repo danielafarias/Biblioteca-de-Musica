@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const Song = require("./models/songs");
+const Gender = require("./models/genders");
 const axios = require("axios");
 
 const app = express();
@@ -29,6 +30,7 @@ app.get("/cadastro", (req, res) => {
 /* Renderiza a página de detalhes */
 app.get("/detalhes/:id", async (req, res) => {
   const songs = await Song.findByPk(req.params.id);
+
   const songTitle = songs.title;
   const songArtist = songs.artist;
   const songAlbum = songs.album;
@@ -66,7 +68,7 @@ app.get("/detalhes/:id", async (req, res) => {
 
 /* Rota para Post de uma nova música */
 app.post("/new", async (req, res) => {
-  const { cover, title, artist, album } = req.body;
+  const { cover, title, artist, album, gender_id } = req.body;
 
   try {
     await Song.create({
@@ -74,6 +76,7 @@ app.post("/new", async (req, res) => {
       title,
       artist,
       album,
+      gender_id
     });
 
     message = "A música foi cadastrada com sucesso!";
@@ -89,6 +92,8 @@ app.post("/new", async (req, res) => {
 /* Renderizar página de alteração */
 app.get("/update/:id", async (req, res) => {
   const songs = await Song.findByPk(req.params.id);
+
+  console.log(songs);
 
   if (!songs) {
     res.render("index", {
@@ -145,8 +150,26 @@ app.post("/deletar/:id", async (req, res) => {
 });
 
 /* Renderiza a página de lista de generos */
-app.get("/generos", (req, res) => {
-  res.render("generos", { pageTitle: "Joymusic | Lista de Gêneros" });
+app.get("/generos", async (req, res) => {
+  const genders = await Gender.findAll();
+
+  console.log(genders)
+
+  res.render("generos", { pageTitle: "Joymusic | Lista de Gêneros", genders });
+});
+
+/* Renderiza a página de lista de generos */
+app.get("/genero/:id", async (req, res) => {
+  const genders = await Gender.findByPk(req.params.id);
+  const songs = await Song.findAll({
+    where: {
+      gender_id: genders.id
+    }
+  });
+
+  console.log(songs)
+
+  res.render("genero", { pageTitle: "Joymusic | Gênero", genders, songs });
 });
 
 app.listen(port, () =>

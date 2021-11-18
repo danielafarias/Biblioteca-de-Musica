@@ -26,12 +26,12 @@
 
     <main class="catalogo">
         <div class="catalogo-musicas">
-            <% songs.map ( item => { %>
-                <a class="cartao" href="/detalhes/<%= item.id %>">
-                    <img src="<%= item.cover %>">
-                    <h2><%= item.title %></h2>
-                    <h4><%= item.artist %></h3>
-                    <h5><%= item.album %></h4>
+            <% songs.map ( obj => { %>
+                <a class="cartao" href="/detalhes/<%= obj.id %>">
+                    <img src="<%= obj.cover %>">
+                    <h2><%= obj.title %></h2>
+                    <h4><%= obj.artist %></h3>
+                    <h5><%= obj.album %></h4>
                 </a>
             <% }) %>
         </div>

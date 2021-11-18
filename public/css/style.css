@@ -7,6 +7,7 @@
     box-sizing: border-box;
     outline: none;
     font-family: "Roboto", sans-serif;
+    text-decoration: none;
 }
 
 html, body { /* para não ter barra de navegação horizontal */
@@ -408,6 +409,8 @@ iframe {
     background-color: #000;
 }
 
+/* Gêneros */
+
 .generos {
     display: flex;
     justify-content: center;
@@ -418,19 +421,26 @@ iframe {
     margin: 2rem 4rem;
     padding: 1rem;
     background-color: #363031;
-    color: #03ADEF;
+    
     font-weight: bold;
     border-radius: 10px;
     list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+   
 }
 
-.lista-generos td {
+.lista-generos li {
     background-color: #413A3B;
     border-radius: 5px;
     padding: 1rem;
+    text-align: center;
+    color: #03ADEF;
+    margin: 0.4rem;
 }
 
-.lista-generos td:hover {
+.lista-generos li:hover {
     background-color: #03ADEF;
     color: #b5437f;
     cursor: pointer;
