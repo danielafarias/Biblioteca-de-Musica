@@ -287,7 +287,51 @@ a.cartao h5 {
     border-radius: 5px;
     padding: 15px;
     color: white;
-  }
+}
+
+/* deletar */
+
+.deletar {
+    background-color: #231F20;
+    max-width: 1000px;
+    min-width: 100px;
+    margin: 100px auto;
+}
+
+.exclusao {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    margin-bottom: 35px;
+    border: 2px solid #03ADEF;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.deletar form button {
+    border: 2px solid #03ADEF;
+    border-radius: 5px;
+    background-color: #03ADEF;
+    padding: 8px 40px;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 2rem;
+    color: white;
+    font-weight: bold;
+    margin: auto;
+}
+
+.deletar form button:hover {
+    transform: scale(1.1);
+}
+
+.deletar button {
+    display: flex;
+    justify-content: center;
+}
 
 /* footer */
 
@@ -411,24 +455,16 @@ iframe {
 
 /* Gêneros */
 
-.generos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .lista-generos {
     margin: 2rem 4rem;
     padding: 1rem;
     background-color: #363031;
-    
     font-weight: bold;
     border-radius: 10px;
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-   
+    justify-content: center;
 }
 
 .lista-generos li {
