@@ -172,6 +172,22 @@ app.get("/genero/:id", async (req, res) => {
   res.render("genero", { pageTitle: "Joymusic | Gênero", genders, songs });
 });
 
+/* Rota para alterar a música  */
+app.post("/buscar", async (req, res) => {
+
+  const { musica } = req.body;
+
+  const song = await Song.findAll();
+
+  const songs = song.filter(
+    (v) => v.title.includes(musica)
+  );
+
+  console.log(songs)
+
+  res.render("index", { pageTitle: "JOYMUSIC | Home", songs });
+});
+
 app.listen(port, () =>
   console.log(`Servidor rodando em http://localhost:${port}`)
 );

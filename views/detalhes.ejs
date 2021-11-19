@@ -13,14 +13,13 @@
 
 <body>
     <header class="header">
-        <form action="/detalhes" method="POST"></form>
-            <div class="buscar">
-                <input type="text" name="musica" id="musica" placeholder="Pesquise pela música" required>
-                <button id="lupa" type="submit"><i class="fas fa-search fa-lg"></i></button>
-            </div>
+        <form class="buscar" action="/buscar" method="POST">
+            <input type="text" name="musica" id="musica" placeholder="Pesquise pela música">
+            <button id="lupa" type="submit"><i class="fas fa-search fa-lg"></i></button>
         </form>
 
         <a id="home" href="/"><i class="fas fa-home fa-lg"></i></a>
+        <a id="generos" href="/generos"><i class="fas fa-stream"></i></a>
     </header>
 
     <main class="detalhes">
