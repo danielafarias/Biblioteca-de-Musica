@@ -416,7 +416,3 @@ iframe {
 ::-webkit-scrollbar-thumb:hover {
   background: #03adef;
 }
-
-footer {
-  background-image: url("/img/waves.png");
-}
