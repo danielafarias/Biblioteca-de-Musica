@@ -399,6 +399,14 @@ iframe {
   cursor: pointer;
 }
 
+/* Loading */
+
+#loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Scrollbar */
 
 ::-webkit-scrollbar {
@@ -415,8 +423,4 @@ iframe {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #03adef;
-}
-
-footer {
-  background-image: url("/img/waves.png");
 }
