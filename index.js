@@ -14,22 +14,55 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
 var message = "";
+var loading = false;
 
-/* Renderiza a página inicial */
+/* GET HOME PAGE */
 app.get("/", async (req, res) => {
   const songs = await Song.findAll();
 
-  res.render("index", { pageTitle: "JOYMUSIC | Home", songs, message });
+  if (songs == "") {
+    res.render("index", {
+      pageTitle: "JOYMUSIC | Home",
+      songs,
+      message,
+      loading: true
+    });
+  }
+
+  res.render("index", { pageTitle: "JOYMUSIC | Home", songs, message, loading });
 });
 
-/* Renderiza a página de cadastrar música */
+/* GET CADASTRO */
 app.get("/cadastro", async (req, res) => {
   const genders = await Gender.findAll();
 
   res.render("cadastro", { pageTitle: "Joymusic | Cadastro de Música", genders });
 });
 
-/* Renderiza a página de detalhes */
+/* POST CADASTRO */
+app.post("/new", async (req, res) => {
+  const { cover, title, artist, album, gender_id } = req.body;
+
+  try {
+    await Song.create({
+      cover,
+      title,
+      artist,
+      album,
+      gender_id
+    });
+
+    message = "A música foi cadastrada com sucesso!";
+    res.redirect("/");
+  } catch (err) {
+    console.log(err);
+    res.render("cadastro", {
+      pageTitle: "Joymusic | Cadastro de Música",
+    });
+  }
+});
+
+/* GET DETALHES */
 app.get("/detalhes/:id", async (req, res) => {
   const songs = await Song.findByPk(req.params.id);
 
@@ -68,30 +101,7 @@ app.get("/detalhes/:id", async (req, res) => {
   });
 });
 
-/* Rota para Post de uma nova música */
-app.post("/new", async (req, res) => {
-  const { cover, title, artist, album, gender_id } = req.body;
-
-  try {
-    await Song.create({
-      cover,
-      title,
-      artist,
-      album,
-      gender_id
-    });
-
-    message = "A música foi cadastrada com sucesso!";
-    res.redirect("/");
-  } catch (err) {
-    console.log(err);
-    res.render("cadastro", {
-      pageTitle: "Joymusic | Cadastro de Música",
-    });
-  }
-});
-
-/* Renderizar página de alteração */
+/* GET ALTERAR */
 app.get("/update/:id", async (req, res) => {
   const songs = await Song.findByPk(req.params.id);
   const genders = await Gender.findAll();
@@ -107,7 +117,7 @@ app.get("/update/:id", async (req, res) => {
   res.render("update", { pageTitle: "Joymusic | Edite a Música", songs, genders });
 });
 
-/* Rota para alterar a música  */
+/* POST ALTERAR  */
 app.post("/update/:id", async (req, res) => {
   const songs = await Song.findByPk(req.params.id);
 
@@ -123,7 +133,7 @@ app.post("/update/:id", async (req, res) => {
   res.redirect("/");
 });
 
-/* Rotas para renderizar a página de confirmação de delete */
+/* GET DELETE */
 app.get("/deletar/:id", async (req, res) => {
   const songs = await Song.findByPk(req.params.id);
   if (!songs) {
@@ -138,7 +148,7 @@ app.get("/deletar/:id", async (req, res) => {
   });
 });
 
-/* Rota para deletar a música */
+/* POST DELETE */
 app.post("/deletar/:id", async (req, res) => {
   const songs = await Song.findByPk(req.params.id);
   if (!songs) {
@@ -152,7 +162,7 @@ app.post("/deletar/:id", async (req, res) => {
   res.redirect("/");
 });
 
-/* Renderiza a página de lista de generos */
+/* GET GENEROS */
 app.get("/generos", async (req, res) => {
   const genders = await Gender.findAll();
 
@@ -161,7 +171,7 @@ app.get("/generos", async (req, res) => {
   res.render("generos", { pageTitle: "Joymusic | Lista de Gêneros", genders });
 });
 
-/* Renderiza a página de lista de generos */
+/* GET GENERO */
 app.get("/genero/:id", async (req, res) => {
   const genders = await Gender.findByPk(req.params.id);
   const songs = await Song.findAll({
@@ -175,7 +185,7 @@ app.get("/genero/:id", async (req, res) => {
   res.render("genero", { pageTitle: "Joymusic | Gênero", genders, songs });
 });
 
-/* Rota para alterar a música  */
+/* POST SEARCH  */
 app.post("/buscar", async (req, res) => {
 
   const { musica } = req.body;

@@ -399,6 +399,14 @@ iframe {
   cursor: pointer;
 }
 
+/* Loading */
+
+#loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Scrollbar */
 
 ::-webkit-scrollbar {
