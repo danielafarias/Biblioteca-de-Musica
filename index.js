@@ -36,7 +36,11 @@ app.get("/", async (req, res) => {
 app.get("/cadastro", async (req, res) => {
   const genders = await Gender.findAll();
 
-  res.render("cadastro", { pageTitle: "Joymusic | Cadastro de Música", genders });
+  if (genders == "") {
+    res.render("cadastro", { pageTitle: "Joymusic | Cadastro de Música", genders: "Não encontrados.", message });
+  }
+
+  res.render("cadastro", { pageTitle: "Joymusic | Cadastro de Música", genders, message });
 });
 
 /* POST CADASTRO */
@@ -53,11 +57,14 @@ app.post("/new", async (req, res) => {
     });
 
     message = "A música foi cadastrada com sucesso!";
+
     res.redirect("/");
   } catch (err) {
     console.log(err);
+
     res.render("cadastro", {
       pageTitle: "Joymusic | Cadastro de Música",
+      message: "Erro ao cadastrar a música."
     });
   }
 });
@@ -66,39 +73,43 @@ app.post("/new", async (req, res) => {
 app.get("/detalhes/:id", async (req, res) => {
   const songs = await Song.findByPk(req.params.id);
 
-  const songTitle = songs.title;
-  const songArtist = songs.artist;
-  const songAlbum = songs.album;
+  try {
+    const songTitle = songs.title;
+    const songArtist = songs.artist;
+    const songAlbum = songs.album;
 
-  const params = {
-    method: "GET",
-    url:
-      "https://api.deezer.com/search/track?q=" +
-      songTitle +
-      "+" +
-      songArtist +
-      "+" +
-      songAlbum,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
+    const params = {
+      method: "GET",
+      url:
+        "https://api.deezer.com/search/track?q=" +
+        songTitle +
+        "+" +
+        songArtist +
+        "+" +
+        songAlbum,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-  const response = await axios(params);
+    const response = await axios(params);
 
-  const responseData = response.data.data;
+    const responseData = response.data.data;
 
-  const responseArray = Array.from(responseData);
+    const responseArray = Array.from(responseData);
 
-  const filteredArray = responseArray.filter(
-    (x) => x.title_short.toLowerCase() == songTitle.toLowerCase() && x.artist.name.toLowerCase() == songArtist.toLowerCase()
-  );
+    const filteredArray = responseArray.filter(
+      (x) => x.title_short.toLowerCase() == songTitle.toLowerCase() && x.artist.name.toLowerCase() == songArtist.toLowerCase()
+    );
 
-  res.render("detalhes", {
-    pageTitle: "Joymusic | Informações da Música",
-    songs,
-    filteredArray
-  });
+    res.render("detalhes", {
+      pageTitle: "Joymusic | Informações da Música",
+      songs,
+      filteredArray
+    })} catch (err) {
+          message = "Música não encontrada."
+          res.redirect("/");
+    }
 });
 
 /* GET ALTERAR */
@@ -109,9 +120,8 @@ app.get("/update/:id", async (req, res) => {
   console.log(songs);
 
   if (!songs) {
-    res.render("index", {
-      message: "Música não encontrado!",
-    });
+    message = "Música não encontrada."
+    res.redirect("/");
   }
 
   res.render("update", { pageTitle: "Joymusic | Edite a Música", songs, genders });
@@ -128,20 +138,25 @@ app.post("/update/:id", async (req, res) => {
   songs.artist = artist;
   songs.album = album;
 
-  await songs.save();
+  try {
+    await songs.save();
+    res.redirect("/");
+  } catch (err) {
+    message = "Erro ao alterar a música."
+    res.redirect("/");
+  };
 
-  res.redirect("/");
 });
 
 /* GET DELETE */
 app.get("/deletar/:id", async (req, res) => {
   const songs = await Song.findByPk(req.params.id);
+
   if (!songs) {
-    res.render("deletar", {
-      pageTitle: "Joymusic | Apagar Música",
-      message: "Música não encontrada!",
-    });
+    message = "Música não encontrada."
+    res.redirect("/");
   }
+
   res.render("deletar", {
     pageTitle: "Joymusic | Apagar Música",
     songs,
@@ -151,15 +166,15 @@ app.get("/deletar/:id", async (req, res) => {
 /* POST DELETE */
 app.post("/deletar/:id", async (req, res) => {
   const songs = await Song.findByPk(req.params.id);
-  if (!songs) {
-    res.render("deletar", {
-      pageTitle: "Joymusic | Apagar Música",
-      message: "Música não encontrada!",
-    });
+  try {
+    await songs.destroy();
+
+    message = "A música foi deletada com sucesso!";
+    res.redirect("/");
+  } catch (err) {
+    message = "Ocorreu um erro ao deletar a música.";
+    res.redirect("/");
   }
-  await songs.destroy();
-  message = "A música foi deletada com sucesso!";
-  res.redirect("/");
 });
 
 /* GET GENEROS */
