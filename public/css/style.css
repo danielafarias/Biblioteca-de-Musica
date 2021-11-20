@@ -1,501 +1,422 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* Global styles */
 
 * {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    box-sizing: border-box;
-    outline: none;
-    font-family: "Roboto", sans-serif;
-    text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
 }
 
-html, body { /* para não ter barra de navegação horizontal */
-    width: 100%;
-    overflow-x: hidden;
-    background-color: #231F20;
-    
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #231f20;
 }
 
 /* header */
 
 header {
-    background-image: url("/img/header.jpg");
-    background-repeat: no-repeat;
-    background-position: top right;
-    background-color: #b5437f;
-    height: 100px;
-    margin: 0 auto;
+  background-image: url("/img/header.jpg");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-color: #b5437f;
+  height: 100px;
+  margin: 0 auto;
 }
 
 .header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 50px;
 }
 
 .buscar {
-    float: left;
-    width: 30%;
-    height: 40px;
-    background: #231F20;
-    border: 2px solid #03ADEF;
-    border-radius: 5px;
+  float: left;
+  width: 30%;
+  height: 40px;
+  background: #231f20;
+  border: 2px solid #03adef;
+  border-radius: 5px;
 }
 
 .buscar input[type="text"] {
-    float: left;
-    width: 80%;
-    height: 100%;
-    border: none;
-    background: transparent;
-    padding: 0 25px;
-    color: white;
+  float: left;
+  width: 80%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  padding: 0 25px;
+  color: white;
 }
 
 .buscar button {
-    float: left;
-    width: 20%;
-    height: 100%;
-    border: none;
-    background: #231F20;
-    color: #03ADEF;
-    cursor: pointer;
+  float: left;
+  width: 20%;
+  height: 100%;
+  border: none;
+  background: #231f20;
+  color: #03adef;
+  cursor: pointer;
 }
 
 .buscar button:hover {
-    color: #b5437f;
+  color: #b5437f;
 }
 
 #adicionar {
-    float: left;
-    width: 5%;
-    padding: 40px;
-    color: #03ADEF;
-    cursor: pointer;
+  float: left;
+  width: 5%;
+  padding: 20px;
+  color: #03adef;
+  cursor: pointer;
 }
 
 #adicionar:hover {
-    color: #231F20;
-    transform: scale(1.1);
+  color: #231f20;
+  transform: scale(1.1);
 }
 
 #generos {
-    float: left;
-    width: 5%;
-    padding: 20px;
-    color: #03ADEF;
-    cursor: pointer;
+  float: left;
+  width: 5%;
+  padding: 20px;
+  color: #03adef;
+  cursor: pointer;
 }
 
 #generos:hover {
-    color: #231F20;
-    transform: scale(1.1);
-}
-
-#deletar {
-    float: left;
-    width: 5%;
-    padding: 20px;
-    color: #03ADEF;
-    cursor: pointer;
-}
-
-#deletar:hover {
-    color: #b5437f;
-    transform: scale(1.1);
+  color: #231f20;
+  transform: scale(1.1);
 }
 
 #home {
-    float: left;
-    width: 5%;
-    padding: 20px;
-    color: #03ADEF;
-    cursor: pointer;
+  float: left;
+  width: 5%;
+  padding: 40px;
+  color: #03adef;
+  cursor: pointer;
 }
 
 #home:hover {
-    color: #231F20;
-    transform: scale(1.1);
+  color: #231f20;
+  transform: scale(1.1);
 }
 
-#editar {
-    float: left;
-    width: 5%;
-    padding: 20px;
-    color: #03ADEF;
-    cursor: pointer;
+#github {
+  float: left;
+  width: 5%;
+  padding: 20px;
+  color: #03adef;
+  cursor: pointer;
 }
 
-#editar:hover {
-    color: #b5437f;
-    transform: scale(1.1);
+#github:hover {
+  color: #231f20;
+  transform: scale(1.1);
 }
 
 /* catalogo */
 
 .catalogo {
-    background-color: #231F20;
-    max-width: 1000px;
-    min-width: 100px;
-    padding: 20px;
-    margin: 0 auto;
+  background-color: #231f20;
+  max-width: 1000px;
+  min-width: 100px;
+  padding: 20px;
+  margin: 0 auto;
 }
 
 a.cartao {
-    width: 10rem;
-    padding: 1rem;
-    box-shadow: 0 0 1rem #00000060;
-    margin: 2rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    cursor: pointer;
-    flex-direction: column;
-    transition: transform 0.5s;
-    background-color: #b5437f;
-    color:#03ADEF;
-    text-decoration: none;
+  width: 10rem;
+  padding: 1rem;
+  box-shadow: 0 0 1rem #00000060;
+  margin: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  cursor: pointer;
+  flex-direction: column;
+  transition: transform 0.5s;
+  background-color: #b5437f;
+  color: #03adef;
+  text-decoration: none;
 }
 
 a.cartao:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 a.cartao img {
-    width: 8rem;
-    height: 8rem;
+  width: 8rem;
+  height: 8rem;
 }
 
 a.cartao h2 {
-    width: 100%;
-    padding-top: 5px;
-    color: #03ADEF;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  width: 100%;
+  padding-top: 5px;
+  color: #03adef;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 a.cartao h4 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 a.cartao h5 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-
 .catalogo-musicas {
-    margin: 0 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+  margin: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cover {
+  width: 316px;
+  height: 316px;
 }
 
 /* cadastro */
 
 .cadastro {
-    background-color: #231F20;
-    max-width: 1000px;
-    min-width: 100px;
-    margin: 0 auto;
+  background-color: #231f20;
+  max-width: 1000px;
+  min-width: 100px;
+  margin: 0 auto;
 }
 
 .formulario {
-    padding: 3rem;
-    display: flex;
-    justify-content: center;
-    margin: 0 20rem 10rem 20rem;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  margin: 0 20rem 10rem 20rem;
 }
 
 #gender_id {
-    margin-bottom: 1rem;
-    width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
-    margin-top: 0.2rem;
-    outline: none;
-    border: 2px solid #03ADEF;
-    border-radius: 5px;
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  outline: none;
+  border: 2px solid #03adef;
+  border-radius: 5px;
 }
 
 .cadastro form div input {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
-    margin-top: 0.2rem;
-    margin-bottom: 0.8rem;
-    outline: none;
-    border: 2px solid #03ADEF;
-    border-radius: 5px;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.8rem;
+  outline: none;
+  border: 2px solid #03adef;
+  border-radius: 5px;
 }
 
 .cadastro form div label {
-    font-size: 1rem;
-    color: #03ADEF;
+  font-size: 1rem;
+  color: #03adef;
 }
 
 .cadastro form button {
-    border: 2px solid #03ADEF;
-    border-radius: 5px;
-    background-color: #03ADEF;
-    padding: 8px 40px;
-    cursor: pointer;
-    margin: auto;
-    margin-top: 2rem;
-    color: white;
-    font-weight: bold;
-    margin: auto;
+  border: 2px solid #03adef;
+  border-radius: 5px;
+  background-color: #03adef;
+  padding: 8px 40px;
+  cursor: pointer;
+  margin: auto;
+  margin-top: 2rem;
+  color: white;
+  font-weight: bold;
+  margin: auto;
 }
 
 .cadastro form button:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .formulario button {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 /* detalhes */
 
 .detalhes {
-    background-color: #231F20;
-    max-width: 1000px;
-    min-width: 100px;
-    margin: 0 auto;
-    flex-direction: wrap;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    align-content: center;
+  background-color: #231f20;
+  max-width: 1000px;
+  min-width: 100px;
+  margin: 0 auto;
+  flex-direction: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
 }
 
 .detalhes img {
-    margin: 1rem auto;
+  margin: 1rem auto;
 }
 
 .detalhes-texto {
-    width: 50%;
-    border: 2px solid #03ADEF;
-    border-radius: 5px;
-    padding: 15px;
-    color: white;
+  width: 50%;
+  border: 2px solid #03adef;
+  border-radius: 5px;
+  padding: 15px;
+  color: white;
+}
+
+#deletar {
+  float: left;
+  width: 5%;
+  padding: 20px;
+  color: #03adef;
+  cursor: pointer;
+}
+
+#deletar:hover {
+  color: #b5437f;
+  transform: scale(1.1);
+}
+
+#editar {
+  float: left;
+  width: 5%;
+  padding: 20px;
+  color: #03adef;
+  cursor: pointer;
+}
+
+#editar:hover {
+  color: #b5437f;
+  transform: scale(1.1);
 }
 
 /* deletar */
 
 .deletar {
-    background-color: #231F20;
-    max-width: 1000px;
-    min-width: 100px;
-    margin: 100px auto;
+  background-color: #231f20;
+  max-width: 1000px;
+  min-width: 100px;
+  margin: 100px auto;
 }
 
 .exclusao {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
-    margin-bottom: 35px;
-    border: 2px solid #03ADEF;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: white;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  margin-bottom: 35px;
+  border: 2px solid #03adef;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: white;
+  display: flex;
+  justify-content: center;
 }
 
 .deletar form button {
-    border: 2px solid #03ADEF;
-    border-radius: 5px;
-    background-color: #03ADEF;
-    padding: 8px 40px;
-    cursor: pointer;
-    margin: auto;
-    margin-top: 2rem;
-    color: white;
-    font-weight: bold;
-    margin: auto;
+  border: 2px solid #03adef;
+  border-radius: 5px;
+  background-color: #03adef;
+  padding: 8px 40px;
+  cursor: pointer;
+  margin: auto;
+  margin-top: 2rem;
+  color: white;
+  font-weight: bold;
+  margin: auto;
 }
 
 .deletar form button:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .deletar button {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-/* footer */
-
-/* footer {
-    background-color: #b5437f;
-    height: 100px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    position: fixed;
-} */
-
-.player {
-    background-color: #b5437f;
-    height: 100px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    position: fixed;
-}
-
-.player-button {
-    background-color: transparent;
-    color: #03ADEF;
-}
-
-#icon {
-    width: 5rem;
-}
-
-.container {
-    width: 960px;
-}
-
-.top-bar {
-    width: 100%;
-    height: 30px;
-    color: #03ADEF;
-    line-height: 30px;
-}
-
-.top-bar .player-controls {
-    float: left;
-}
-
-.top-bar .player-controls span {
-    cursor: pointer;
-    padding: 0 5px;
-    /*9-webkit-transition: all linear 0.2s;*/
-}
-
-.top-bar .player-controls span:hover {
-    color: #03ADEF;
-}
-
-.top-bar .player-display {
-    float: left;
-    float: right;
-    margin-left: 50px;
-}
-
-.top-bar .player-display .player-current-track {
-    color: #03ADEF;
-}
-
-.top-bar .player {
-    float: left;
-}
-
-.top-bar .player-timeline {
-    float: left;
-    max-width: 200px;
-    width: 200px;
-    height: 4px;
-    margin-top: 13px;
-    background: #03ADEF;
-    margin-left: 20px;
-}
-
-.top-bar .player-timeline-control {
-    height: 4px;
-    background: #03ADEF;
-}
-
-.cover {
-    width: 316px;
-    height: 316px;
-}
-
-.player {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.player-button {
-    background-color: transparent;
-    color: #03ADEF;
-}
+/* Player em Detalhes */
 
 iframe {
-    overflow: hidden;
-    padding-top: -5rem;
-    padding-bottom: 1rem;
-    height: 150px;
-    object-fit: cover;
-    margin: 0 auto;
-    width: 100%;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    position: fixed;
-    border-top: 4px solid #03ADEF;
-    background-color: #000;
+  overflow: hidden;
+  padding-top: -5rem;
+  padding-bottom: 1rem;
+  height: 150px;
+  object-fit: cover;
+  margin: 0 auto;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  position: fixed;
+  border-top: 4px solid #03adef;
+  background-color: #000;
 }
 
 /* Gêneros */
 
 .lista-generos {
-    margin: 2rem 4rem;
-    padding: 1rem;
-    background-color: #363031;
-    font-weight: bold;
-    border-radius: 10px;
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  margin: 2rem 4rem;
+  padding: 1rem;
+  background-color: #363031;
+  font-weight: bold;
+  border-radius: 10px;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .lista-generos li {
-    background-color: #413A3B;
-    border-radius: 5px;
-    padding: 1rem;
-    text-align: center;
-    color: #03ADEF;
-    margin: 0.4rem;
+  background-color: #413a3b;
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
+  color: #03adef;
+  margin: 0.4rem;
 }
 
 .lista-generos li:hover {
-    background-color: #03ADEF;
-    color: #b5437f;
-    cursor: pointer;
+  background-color: #03adef;
+  color: #b5437f;
+  cursor: pointer;
 }
 
+/* Scrollbar */
 
 ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #231F20;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #b5437f;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #03ADEF;
-  }
-  
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #231f20;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b5437f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #03adef;
+}
+
+footer {
+  background-image: url("/img/waves.png");
+}

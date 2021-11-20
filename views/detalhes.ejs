@@ -36,13 +36,9 @@
         <a id="editar" href="/update/<%= songs.id %>"><i class="fas fa-edit fa-lg"></i></a>
         <a id="deletar" href="/deletar/<%= songs.id %>"><i class="fas fa-trash fa-lg"></i></a>
     </main>
-
- 
+    
         <% filteredArray.map ( obj => { %>
-            <iframe src=<%= obj.preview %>>
-
-            </iframe>
+            <iframe src=<%= obj.preview %>></iframe>
         <% }) %>
-    <script src="/js/script.js"></script>
 </body>
 </html>

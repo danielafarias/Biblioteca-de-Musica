@@ -94,6 +94,7 @@ app.post("/new", async (req, res) => {
 /* Renderizar página de alteração */
 app.get("/update/:id", async (req, res) => {
   const songs = await Song.findByPk(req.params.id);
+  const genders = await Gender.findAll();
 
   console.log(songs);
 
@@ -103,7 +104,7 @@ app.get("/update/:id", async (req, res) => {
     });
   }
 
-  res.render("update", { pageTitle: "Joymusic | Edite a Música", songs });
+  res.render("update", { pageTitle: "Joymusic | Edite a Música", songs, genders });
 });
 
 /* Rota para alterar a música  */

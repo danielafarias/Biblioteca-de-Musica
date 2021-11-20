@@ -12,14 +12,7 @@
 </head>
 
 <body>
-    <header class="header">
-        <form class="buscar" action="/buscar" method="POST">
-            <input type="text" name="musica" id="musica" placeholder="Pesquise pela música">
-            <button id="lupa" type="submit"><i class="fas fa-search fa-lg"></i></button>
-        </form>
-
-        <a id="home" href="/"><i class="fas fa-home fa-lg"></i></a>
-    </header>
+    <%- include('header'); %>
 
     <main class="cadastro">
         <div class="formulario">
@@ -46,23 +39,9 @@
                 <div>
                     <label for="gender_id">Genêro da Música: </label>
                         <select name="gender_id" id="gender_id">
-                            <option value=1>Pop</option>
-                            <option value=2>Rock</option>
-                            <option value=3>Folk</option>
-                            <option value=4>Indie</option>
-                            <option value=5>R&B</option>
-                            <option value=6>Hip-hop</option>
-                            <option value=7>MPB</option>
-                            <option value=8>Sertanejo</option>
-                            <option value=9>Forró</option>
-                            <option value=10>Funk</option>
-                            <option value=11>Pagode</option>
-                            <option value=12>Samba</option>
-                            <option value=13>Jazz</option>
-                            <option value=14>Blues</option>
-                            <option value=15>Instrumental</option>
-                            <option value=16>Eletrônica</option>
-                            <option value=17>Outros</option>
+                            <% genders.map ( obj => { %>
+                                <option value=<%= obj.id %>><%= obj.name %></option>
+                            <% }) %>
                         </select>
                 </div>
             
@@ -70,7 +49,5 @@
             </form>
         </div>
     </main>
-
-    <script src="/js/script.js"></script>
 </body>
 </html>
