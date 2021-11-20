@@ -12,14 +12,7 @@
 </head>
 
 <body>
-    <header class="header">
-        <form class="buscar" action="/buscar" method="POST">
-            <input type="text" name="musica" id="musica" placeholder="Pesquise pela música">
-            <button id="lupa" type="submit"><i class="fas fa-search fa-lg"></i></button>
-        </form>
-
-        <a id="home" href="/"><i class="fas fa-home fa-lg"></i></a>
-    </header>
+    <%- include('header'); %>
 
     <main class="cadastro">
         <div class="formulario">
@@ -56,7 +49,5 @@
             </form>
         </div>
     </main>
-
-    <script src="/js/script.js"></script>
 </body>
 </html>

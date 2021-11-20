@@ -73,7 +73,7 @@ header {
 #adicionar {
   float: left;
   width: 5%;
-  padding: 40px;
+  padding: 20px;
   color: #03adef;
   cursor: pointer;
 }
@@ -96,23 +96,10 @@ header {
   transform: scale(1.1);
 }
 
-#deletar {
-  float: left;
-  width: 5%;
-  padding: 20px;
-  color: #03adef;
-  cursor: pointer;
-}
-
-#deletar:hover {
-  color: #b5437f;
-  transform: scale(1.1);
-}
-
 #home {
   float: left;
   width: 5%;
-  padding: 20px;
+  padding: 40px;
   color: #03adef;
   cursor: pointer;
 }
@@ -122,7 +109,7 @@ header {
   transform: scale(1.1);
 }
 
-#editar {
+#github {
   float: left;
   width: 5%;
   padding: 20px;
@@ -130,8 +117,8 @@ header {
   cursor: pointer;
 }
 
-#editar:hover {
-  color: #b5437f;
+#github:hover {
+  color: #231f20;
   transform: scale(1.1);
 }
 
@@ -293,6 +280,32 @@ a.cartao h5 {
   border-radius: 5px;
   padding: 15px;
   color: white;
+}
+
+#deletar {
+  float: left;
+  width: 5%;
+  padding: 20px;
+  color: #03adef;
+  cursor: pointer;
+}
+
+#deletar:hover {
+  color: #b5437f;
+  transform: scale(1.1);
+}
+
+#editar {
+  float: left;
+  width: 5%;
+  padding: 20px;
+  color: #03adef;
+  cursor: pointer;
+}
+
+#editar:hover {
+  color: #b5437f;
+  transform: scale(1.1);
 }
 
 /* deletar */
