@@ -23,8 +23,10 @@ app.get("/", async (req, res) => {
 });
 
 /* Renderiza a página de cadastrar música */
-app.get("/cadastro", (req, res) => {
-  res.render("cadastro", { pageTitle: "Joymusic | Cadastro de Música" });
+app.get("/cadastro", async (req, res) => {
+  const genders = await Gender.findAll();
+
+  res.render("cadastro", { pageTitle: "Joymusic | Cadastro de Música", genders });
 });
 
 /* Renderiza a página de detalhes */
@@ -180,7 +182,7 @@ app.post("/buscar", async (req, res) => {
   const song = await Song.findAll();
 
   const songs = song.filter(
-    (v) => v.title.includes(musica)
+    (v) => v.title.includes(musica.toLowerCase()) || v.title.includes(musica.toUpperCase())
   );
 
   console.log(songs)
