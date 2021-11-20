@@ -1,7 +1,9 @@
 const Sequelize = require("sequelize");
-const sequelize = require("../database");
+const database = require("../database");
 
-const Gender = sequelize.define("genders", {
+const Gender = database.define(
+  "genders",
+  {
     id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
@@ -11,13 +13,14 @@ const Gender = sequelize.define("genders", {
     name: {
       type: Sequelize.STRING,
       allowNull: false,
-    }
+    },
   },
   {
     freezeTableName: true,
-    timestamps: false, 
+    timestamps: false,
     createdAt: false,
     updatedAt: false,
-  });
-  
-  module.exports = Gender;
+  }
+);
+
+module.exports = Gender;

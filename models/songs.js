@@ -1,7 +1,9 @@
 const Sequelize = require("sequelize");
-const sequelize = require("../database");
+const database = require("../database");
 
-const Song = sequelize.define("songs", {
+const Song = database.define(
+  "songs",
+  {
     id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
@@ -26,15 +28,16 @@ const Song = sequelize.define("songs", {
     },
     gender_id: {
       type: Sequelize.INTEGER,
-      references: 'genders', 
-      referencesKey: 'id' 
-    }
+      references: "genders",
+      referencesKey: "id",
+    },
   },
   {
     freezeTableName: true,
-    timestamps: false, 
+    timestamps: false,
     createdAt: false,
     updatedAt: false,
-  });
-  
-  module.exports = Song;
+  }
+);
+
+module.exports = Song;

@@ -47,7 +47,7 @@
                     <label for="gender_id">Genêro da Música: </label>
                         <select name="gender_id" id="gender_id">
                             <% genders.map ( obj => { %>
-                            <option value=<%= obj.id %>><%= obj.name %></option>
+                                <option value=<%= obj.id %>><%= obj.name %></option>
                             <% }) %>
                         </select>
                 </div>
