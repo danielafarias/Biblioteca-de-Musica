@@ -407,6 +407,31 @@ iframe {
   align-items: center;
 }
 
+/* Message */
+
+#message {
+  background-color: #b5437f;
+  color: #231f20;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+#close {
+  color: #231f20;
+  padding-left: 0.5rem;
+}
+
+#close:hover {
+  color: #03adef;
+  cursor: pointer;
+}
+
 /* Scrollbar */
 
 ::-webkit-scrollbar {
