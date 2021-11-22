@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
-const database = require("../database");
+const sequelize = require("../database");
 
-const Gender = database.define(
+const Gender = sequelize.define(
   "genders",
   {
     id: {
