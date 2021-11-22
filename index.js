@@ -25,11 +25,16 @@ app.get("/", async (req, res) => {
       pageTitle: "JOYMUSIC | Home",
       songs,
       message,
-      loading: true
+      loading: true,
     });
   }
 
-  res.render("index", { pageTitle: "JOYMUSIC | Home", songs, message, loading });
+  res.render("index", {
+    pageTitle: "JOYMUSIC | Home",
+    songs,
+    message,
+    loading,
+  });
 });
 
 /* GET CADASTRO */
@@ -37,10 +42,18 @@ app.get("/cadastro", async (req, res) => {
   const genders = await Gender.findAll();
 
   if (genders == "") {
-    res.render("cadastro", { pageTitle: "Joymusic | Cadastro de Música", genders: "Não encontrados.", message });
+    res.render("cadastro", {
+      pageTitle: "Joymusic | Cadastro de Música",
+      genders: "Não encontrados.",
+      message,
+    });
   }
 
-  res.render("cadastro", { pageTitle: "Joymusic | Cadastro de Música", genders, message });
+  res.render("cadastro", {
+    pageTitle: "Joymusic | Cadastro de Música",
+    genders,
+    message,
+  });
 });
 
 /* POST CADASTRO */
@@ -53,7 +66,7 @@ app.post("/new", async (req, res) => {
       title,
       artist,
       album,
-      gender_id
+      gender_id,
     });
 
     message = "A música foi cadastrada com sucesso!";
@@ -64,7 +77,7 @@ app.post("/new", async (req, res) => {
 
     res.render("cadastro", {
       pageTitle: "Joymusic | Cadastro de Música",
-      message: "Erro ao cadastrar a música."
+      message: "Erro ao cadastrar a música.",
     });
   }
 });
@@ -99,17 +112,20 @@ app.get("/detalhes/:id", async (req, res) => {
     const responseArray = Array.from(responseData);
 
     const filteredArray = responseArray.filter(
-      (x) => x.title_short.toLowerCase() == songTitle.toLowerCase() && x.artist.name.toLowerCase() == songArtist.toLowerCase()
+      (x) =>
+        x.title_short.toLowerCase() == songTitle.toLowerCase() &&
+        x.artist.name.toLowerCase() == songArtist.toLowerCase()
     );
 
     res.render("detalhes", {
       pageTitle: "Joymusic | Informações da Música",
       songs,
-      filteredArray
-    })} catch (err) {
-          message = "Música não encontrada."
-          res.redirect("/");
-    }
+      filteredArray,
+    });
+  } catch (err) {
+    message = "Música não encontrada.";
+    res.redirect("/");
+  }
 });
 
 /* GET ALTERAR */
@@ -120,11 +136,15 @@ app.get("/update/:id", async (req, res) => {
   console.log(songs);
 
   if (!songs) {
-    message = "Música não encontrada."
+    message = "Música não encontrada.";
     res.redirect("/");
   }
 
-  res.render("update", { pageTitle: "Joymusic | Edite a Música", songs, genders });
+  res.render("update", {
+    pageTitle: "Joymusic | Edite a Música",
+    songs,
+    genders,
+  });
 });
 
 /* POST ALTERAR  */
@@ -142,10 +162,9 @@ app.post("/update/:id", async (req, res) => {
     await songs.save();
     res.redirect("/");
   } catch (err) {
-    message = "Erro ao alterar a música."
+    message = "Erro ao alterar a música.";
     res.redirect("/");
-  };
-
+  }
 });
 
 /* GET DELETE */
@@ -153,7 +172,7 @@ app.get("/deletar/:id", async (req, res) => {
   const songs = await Song.findByPk(req.params.id);
 
   if (!songs) {
-    message = "Música não encontrada."
+    message = "Música não encontrada.";
     res.redirect("/");
   }
 
@@ -181,39 +200,73 @@ app.post("/deletar/:id", async (req, res) => {
 app.get("/generos", async (req, res) => {
   const genders = await Gender.findAll();
 
-  console.log(genders)
+  if (!genders) {
+    res.render("generos", {
+      pageTitle: "Joymusic | Lista de Gêneros",
+      loading: true,
+    });
+  }
 
-  res.render("generos", { pageTitle: "Joymusic | Lista de Gêneros", genders });
+  res.render("generos", {
+    pageTitle: "Joymusic | Lista de Gêneros",
+    genders,
+    loading,
+  });
 });
 
 /* GET GENERO */
 app.get("/genero/:id", async (req, res) => {
-  const genders = await Gender.findByPk(req.params.id);
-  const songs = await Song.findAll({
-    where: {
-      gender_id: genders.id
+  try {
+    const genders = await Gender.findByPk(req.params.id);
+
+    const songs = await Song.findAll({
+      where: {
+        gender_id: genders.id,
+      },
+    });
+
+    if (!songs) {
+      res.render("genero", {
+        pageTitle: "Joymusic | Gênero",
+        genders,
+        loading: true,
+      });
     }
-  });
 
-  console.log(songs)
-
-  res.render("genero", { pageTitle: "Joymusic | Gênero", genders, songs });
+    res.render("genero", {
+      pageTitle: "Joymusic | Gênero",
+      genders,
+      songs,
+      loading,
+    });
+  } catch (err) {
+    message = "Gênero não encontrado.";
+    res.redirect("/");
+  }
 });
 
 /* POST SEARCH  */
 app.post("/buscar", async (req, res) => {
-
   const { musica } = req.body;
 
   const song = await Song.findAll();
 
   const songs = song.filter(
-    (v) => v.title.includes(musica.toLowerCase()) || v.title.includes(musica.toUpperCase())
+    (v) =>
+      v.title.includes(musica.toLowerCase()) ||
+      v.title.includes(musica.toUpperCase())
   );
 
-  console.log(songs)
+  if (!songs) {
+    loading = true;
+  }
 
-  res.render("index", { pageTitle: "JOYMUSIC | Home", songs });
+  res.render("index", {
+    pageTitle: "JOYMUSIC | Home",
+    songs,
+    message,
+    loading,
+  });
 });
 
 app.listen(port, () =>
