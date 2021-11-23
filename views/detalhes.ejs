@@ -20,13 +20,13 @@
         </div>
         
         <div class="detalhes-texto">
-            <h2>Título: <%= songs.title %></h2>
-            <h2>Artista: <%= songs.artist %></h2>
-            <h2>Álbum: <%= songs.album %></h2>
+            <h2><span>Título:</span> <%= songs.title %></h2>
+            <h2><span>Artista:</span> <%= songs.artist %></h2>
+            <h2><span>Álbum:</span> <%= songs.album %></h2>
+            <a id="editar" href="/update/<%= songs.id %>"><i class="fas fa-edit fa-lg"></i></a>
+            <a id="deletar" href="/deletar/<%= songs.id %>"><i class="fas fa-trash fa-lg"></i></a>
         </div>
 
-        <a id="editar" href="/update/<%= songs.id %>"><i class="fas fa-edit fa-lg"></i></a>
-        <a id="deletar" href="/deletar/<%= songs.id %>"><i class="fas fa-trash fa-lg"></i></a>
     </main>
     
         <% filteredArray.map ( obj => { %>
