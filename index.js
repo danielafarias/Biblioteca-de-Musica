@@ -289,6 +289,10 @@ app.post("/buscar", async (req, res) => {
   });
 });
 
+app.get ("/sobre", (req, res) => {
+  res.render ("sobre");
+});
+
 app.listen(port, () =>
   console.log(`Servidor rodando em http://localhost:${port}`)
 );
