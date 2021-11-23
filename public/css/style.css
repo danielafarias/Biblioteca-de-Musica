@@ -19,6 +19,10 @@ body {
   background-color: #231f20;
 }
 
+span {
+  color: #03adef;
+}
+
 /* header */
 
 header {
@@ -304,7 +308,7 @@ a.cartao h5 {
 #editar {
   float: left;
   width: 5%;
-  padding: 20px;
+  padding: 20px 20px 20px 0;
   color: #03adef;
   cursor: pointer;
 }
@@ -456,7 +460,17 @@ iframe {
   header {
     background-image: url("/img/logo_header_s.png");
     background-size: 9rem;
-    
+  }
+}
+
+@media screen and (max-width: 625px) {
+  header {
+    background-image: url("/img/logo_header_s.png");
+    background-size: 9rem;
+  }
+
+  .detalhes {
+    padding-bottom: 10.5rem;
   }
 }
 
@@ -464,7 +478,6 @@ iframe {
   header {
     background-image: url("/img/logo_header_s.png");
     background-size: 7rem;
-    
   }
 }
 
@@ -472,7 +485,6 @@ iframe {
   header {
     background-image: url("/img/logo_header_s.png");
     background-size: 5rem;
-    
   }
 }
 
