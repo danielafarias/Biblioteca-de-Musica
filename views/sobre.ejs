@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title> JOYMUSIC | Os Alunos </title>
+    <link rel="icon" type="image/png" href="/img/logo_pequena.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+</head>
+<body>
+    <header class="header">
+        <form class="buscar" action="/buscar" method="POST">
+          <input
+            type="text"
+            name="musica"
+            id="musica"
+            placeholder="Pesquise pela música"
+          />
+          <button id="lupa" type="submit">
+            <i class="fas fa-search fa-lg"></i>
+          </button>
+        </form>
+  
+        <a id="home" href="/"><i class="fas fa-home fa-lg"></i></a>
+        <a id="adicionar" href="/cadastro"><i class="fas fa-plus fa-lg"></i></a>
+        <a id="generos" href="/generos"><i class="fas fa-stream"></i></a>
+        <a
+          id="github"
+          href="https://github.com/danielafarias/Biblioteca-de-Musica"
+          target="_blank"
+          rel="noreferrer"
+          ><i class="fas fa-code"></i
+        ></a>
+    </header>
+    <div class="alunos">
+        <div class="card">
+            <div class="card-alunos">
+                <a href="https://github.com/danielafarias">
+                    <img src="https://avatars.githubusercontent.com/u/79869120?v=4" width="100px;" alt="Foto da Daniela Farias no GitHub"/><br>
+                    <sub>
+                    <b>Daniela Farias</b>
+                    </sub>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-alunos">
+                <a href="https://github.com/DiegoCarravetta">
+                    <img src="https://avatars.githubusercontent.com/u/89053789?v=4" width="100px;" alt="Foto do Diego Carravetta no GitHub"/><br>
+                    <sub>
+                    <b>Diego Carravetta</b>
+                    </sub>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-alunos">
+                <a href="https://github.com/JoycenildaPrado">
+                    <img src="https://media-exp1.licdn.com/dms/image/C4E03AQHUvLAl8qSwSg/profile-displayphoto-shrink_800_800/0/1628222086098?e=1642032000&v=beta&t=dVXzmnt-e9bZWx_MOcBOiCzAuB6pww4kkLUq7EaXSN4" width="100px;" alt="Foto da Joyce Prado no GitHub"/><br>
+                    <sub>
+                    <b>Joyce Prado</b>
+                    </sub>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <p class="info">Clique em cada aluno e saiba mais sobre ele!</p>
+</body>
+</html>

@@ -18,9 +18,9 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 - [x] Projeto inicializado
 - [x] Protótipo no [Figma](https://www.figma.com/file/TNZzKRz8fJGtCS5Mhnyyjd/Joymusic?node-id=0%3A1)
-- [ ] Views
-- [ ] Rotas no Express
-- [ ] Projeto Finalizado
+- [x] Views
+- [x] Rotas no Express
+- [x] Projeto Finalizado
 
 ## 🧑‍💻 Tecnologias
 
