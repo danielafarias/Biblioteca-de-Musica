@@ -167,11 +167,13 @@ a.cartao h2 {
 }
 
 a.cartao h4 {
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 a.cartao h5 {
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
