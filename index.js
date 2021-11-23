@@ -263,13 +263,23 @@ app.post("/buscar", async (req, res) => {
 
   const songs = song.filter(
     (v) =>
-      v.title.includes(musica.toLowerCase()) ||
-      v.title.includes(musica.toUpperCase())
+      v.title.toLowerCase().includes(musica.toLowerCase()) 
   );
 
   if (!songs) {
     loading = true;
   }
+
+  // const Op = Sequelize.Op;
+  // const songs = await Song.findAll({
+  //   where: {
+  //     title: {
+  //       [Op.like]:
+  //         "%" + musica.toLowerCase() + "%" && "%" + musica.toUpperCase() + "%" && "%" + musica + "%",
+  //     },
+  //   },
+  // });
+
 
   res.render("index", {
     pageTitle: "JOYMUSIC | Home",
