@@ -12,15 +12,7 @@
 </head>
 
 <body>
-    <header class="header">
-        <form class="buscar" action="/buscar" method="POST">
-            <input type="text" name="musica" id="musica" placeholder="Pesquise pela música">
-            <button id="lupa" type="submit"><i class="fas fa-search fa-lg"></i></button>
-        </form>
-
-        <a id="home" href="/"><i class="fas fa-home fa-lg"></i></a>
-        <a id="generos" href="/generos"><i class="fas fa-stream"></i></a>
-    </header>
+    <%- include('header'); %>
 
     <main class="detalhes">
         <div>
@@ -28,13 +20,13 @@
         </div>
         
         <div class="detalhes-texto">
-            <h2>Título: <%= songs.title %></h2>
-            <h2>Artista: <%= songs.artist %></h2>
-            <h2>Álbum: <%= songs.album %></h2>
+            <h2><span>Título:</span> <%= songs.title %></h2>
+            <h2><span>Artista:</span> <%= songs.artist %></h2>
+            <h2><span>Álbum:</span> <%= songs.album %></h2>
+            <a id="editar" href="/update/<%= songs.id %>"><i class="fas fa-edit fa-lg"></i></a>
+            <a id="deletar" href="/deletar/<%= songs.id %>"><i class="fas fa-trash fa-lg"></i></a>
         </div>
 
-        <a id="editar" href="/update/<%= songs.id %>"><i class="fas fa-edit fa-lg"></i></a>
-        <a id="deletar" href="/deletar/<%= songs.id %>"><i class="fas fa-trash fa-lg"></i></a>
     </main>
     
         <% filteredArray.map ( obj => { %>

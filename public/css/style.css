@@ -19,6 +19,10 @@ body {
   background-color: #231f20;
 }
 
+span {
+  color: #03adef;
+}
+
 /* header */
 
 header {
@@ -30,11 +34,17 @@ header {
   margin: 0 auto;
 }
 
-.header {
+.media-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 50px;
+  padding: 0 50px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .buscar {
@@ -73,7 +83,6 @@ header {
 #adicionar {
   float: left;
   width: 5%;
-  padding: 20px;
   color: #03adef;
   cursor: pointer;
 }
@@ -112,7 +121,7 @@ header {
 #github {
   float: left;
   width: 5%;
-  padding: 20px;
+  padding: 10px;
   color: #03adef;
   cursor: pointer;
 }
@@ -218,7 +227,6 @@ a.cartao h5 {
   padding: 3rem;
   display: flex;
   justify-content: center;
-  margin: 0 20rem 10rem 20rem;
 }
 
 #gender_id {
@@ -313,7 +321,7 @@ a.cartao h5 {
 #editar {
   float: left;
   width: 5%;
-  padding: 20px;
+  padding: 20px 20px 20px 0;
   color: #03adef;
   cursor: pointer;
 }
@@ -503,6 +511,80 @@ header {
 #close:hover {
   color: #03adef;
   cursor: pointer;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 705px) {
+  header {
+    background-image: url("/img/logo_header.png");
+    background-size: 14rem;
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-color: #b5437f;
+    height: 100px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  header {
+    background-image: url("/img/logo_header_s.png");
+    background-size: 9rem;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  header {
+    background-image: url("/img/logo_header_s.png");
+    background-size: 9rem;
+  }
+
+  .detalhes {
+    padding-bottom: 10.5rem;
+  }
+}
+
+@media screen and (max-width: 561px) {
+  header {
+    background-image: url("/img/logo_header_s.png");
+    background-size: 7rem;
+  }
+}
+
+@media screen and (max-width: 517px) {
+  header {
+    background-image: url("/img/logo_header_s.png");
+    background-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 469px) {
+  header {
+    background-image: url("/img/logo_grande.png");
+    background-size: 7rem;
+    background-position: center top;
+  }
+
+  .media-container {
+    padding-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 397px) {
+
+  .media-container {
+    padding: 1rem 2px 0 2px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 329px) {
+
+  .buttons {
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /* Scrollbar */

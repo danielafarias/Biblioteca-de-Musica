@@ -11,29 +11,33 @@
   </head>
   <body>
     <header class="header">
-      <form class="buscar" action="/buscar" method="POST">
-        <input
-          type="text"
-          name="musica"
-          id="musica"
-          placeholder="Pesquise pela música"
-        />
-        <button id="lupa" type="submit">
-          <i class="fas fa-search fa-lg"></i>
-        </button>
-      </form>
+        <div class="media-container">
+          <form class="buscar" action="/buscar" method="POST">
+            <input
+              type="text"
+              name="musica"
+              id="musica"
+              placeholder="Pesquise pela música"
+            />
+            <button id="lupa" type="submit">
+              <i class="fas fa-search fa-lg"></i>
+            </button>
+          </form>
 
-      <a id="home" href="/"><i class="fas fa-home fa-lg"></i></a>
-      <a id="adicionar" href="/cadastro"><i class="fas fa-plus fa-lg"></i></a>
-      <a id="generos" href="/generos"><i class="fas fa-stream"></i></a>
-      <a
-        id="github"
-        href="https://github.com/danielafarias/Biblioteca-de-Musica"
-        target="_blank"
-        rel="noreferrer"
-        ><i class="fas fa-code"></i
-      ></a>
-      <a id="sobre" href="/sobre"><i class="fas fa-address-card fa-lg"></i></a>
+          <div class="buttons">
+            <a id="home" href="/"><i class="fas fa-home fa-lg"></i></a>
+            <a id="adicionar" href="/cadastro"><i class="fas fa-plus fa-lg"></i></a>
+            <a id="generos" href="/generos"><i class="fas fa-stream"></i></a>
+            <a
+              id="github"
+              href="https://github.com/danielafarias/Biblioteca-de-Musica"
+              target="_blank"
+              rel="noreferrer"
+              ><i class="fas fa-code"></i
+            ></a>
+            <a id="sobre" href="/sobre"><i class="fas fa-address-card fa-lg"></i></a>
+        </div>
+      </div>
     </header>
   </body>
 </html>
