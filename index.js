@@ -290,7 +290,9 @@ app.post("/buscar", async (req, res) => {
 });
 
 app.get ("/sobre", (req, res) => {
-  res.render ("sobre");
+  res.render ("sobre", {
+    pageTitle: "JOYMUSIC | Os Alunos",
+  });
 });
 
 app.listen(port, () =>
