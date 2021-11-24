@@ -34,6 +34,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - PostgreSQL
 - Dotenv
 - Sequelize
+- Axios
 
 ## 💡 Hint
 
