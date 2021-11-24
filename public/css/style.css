@@ -45,7 +45,14 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
+
+form {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
 
 .buscar {
   float: left;
@@ -515,10 +522,10 @@ header {
 
 /* Media Queries */
 
-@media screen and (max-width: 705px) {
+@media screen and (max-width: 765px) {
   header {
     background-image: url("/img/logo_header.png");
-    background-size: 14rem;
+    background-size: 12rem;
     background-repeat: no-repeat;
     background-position: center right;
     background-color: #b5437f;
@@ -527,17 +534,24 @@ header {
   }
 }
 
-@media screen and (max-width: 675px) {
+@media screen and (max-width: 733px) {
   header {
     background-image: url("/img/logo_header_s.png");
     background-size: 9rem;
   }
 }
 
+@media screen and (max-width: 668px) {
+  header {
+    background-image: url("/img/logo_header_s.png");
+    background-size: 7rem;
+  }
+}
+
 @media screen and (max-width: 625px) {
   header {
     background-image: url("/img/logo_header_s.png");
-    background-size: 9rem;
+    background-size: 5rem;
   }
 
   .detalhes {
@@ -545,21 +559,7 @@ header {
   }
 }
 
-@media screen and (max-width: 561px) {
-  header {
-    background-image: url("/img/logo_header_s.png");
-    background-size: 7rem;
-  }
-}
-
-@media screen and (max-width: 517px) {
-  header {
-    background-image: url("/img/logo_header_s.png");
-    background-size: 5rem;
-  }
-}
-
-@media screen and (max-width: 469px) {
+@media screen and (max-width: 560px) {
   header {
     background-image: url("/img/logo_grande.png");
     background-size: 7rem;
@@ -571,7 +571,7 @@ header {
   }
 }
 
-@media screen and (max-width: 397px) {
+@media screen and (max-width: 479px) {
 
   .media-container {
     padding: 1rem 2px 0 2px;
@@ -579,11 +579,31 @@ header {
   }
 }
 
-@media screen and (max-width: 329px) {
+@media screen and (max-width: 382px) {
 
+  .media-container {
+   padding: 1rem 0 0 0;
+  }
+
+  form {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    margin-left: -30px;
+  }
   .buttons {
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 329px) {
+
+  form {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    margin-left: -40px;
   }
 }
 
