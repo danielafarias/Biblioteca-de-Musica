@@ -48,13 +48,10 @@ header {
   flex-wrap: wrap;
 }
 
-form {
-    display: flex;
-    width: 100%;
-    flex-wrap: nowrap;
-  }
-
 .buscar {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
   float: left;
   width: 30%;
   height: 40px;
@@ -585,7 +582,7 @@ header {
    padding: 1rem 0 0 0;
   }
 
-  form {
+  .buscar {
     display: flex;
     width: 100%;
     flex-wrap: nowrap;
@@ -599,7 +596,7 @@ header {
 
 @media screen and (max-width: 329px) {
 
-  form {
+  .buscar {
     display: flex;
     width: 100%;
     flex-wrap: nowrap;
