@@ -87,7 +87,7 @@ Em seguida, adicione as bibliotecas e dependências necessárias:
 ```
 <npm i axios>
 ```
-## 🧾 Script SQL
+## 🧾 Script SQL de `<Biblioteca-de-Musica>`
 
 Para usar sem nenhum problema essa aplicação, recomendamos que use o Script a seguir para a criação de tabelas e dados necessários. Entre em [SCRIPT](SCRIPT.md) para mais detalhes. 
 
