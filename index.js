@@ -24,7 +24,7 @@ app.get("/", async (req, res) => {
     res.render("index", {
       pageTitle: "JOYMUSIC | Home",
       songs,
-      message,
+      message: "",
       loading: true,
     });
   }
@@ -32,7 +32,7 @@ app.get("/", async (req, res) => {
   res.render("index", {
     pageTitle: "JOYMUSIC | Home",
     songs,
-    message,
+    message: "",
     loading,
   });
 });
@@ -44,15 +44,15 @@ app.get("/cadastro", async (req, res) => {
   if (genders == "") {
     res.render("cadastro", {
       pageTitle: "Joymusic | Cadastro de Música",
-      genders: "Não encontrados.",
-      message,
+      genders,
+      message: "Gêneros não encontrados",
     });
   }
 
   res.render("cadastro", {
     pageTitle: "Joymusic | Cadastro de Música",
     genders,
-    message,
+    message: "",
   });
 });
 
@@ -170,6 +170,7 @@ app.post("/update/:id", async (req, res) => {
 
   try {
     await songs.save();
+    message = "Música foi alterada com sucesso.";
     res.redirect("/");
   } catch (err) {
     message = "Erro ao alterar a música.";
@@ -284,7 +285,7 @@ app.post("/buscar", async (req, res) => {
   res.render("index", {
     pageTitle: "JOYMUSIC | Home",
     songs,
-    message,
+    message: "",
     loading,
   });
 });
